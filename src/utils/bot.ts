@@ -1,10 +1,14 @@
 import TelegramBot from 'node-telegram-bot-api';
 
-let bot: TelegramBot | undefined;
+const sendMessage = (chatId: string, message: string) => {
+  return fetch(`https://api.telegram.org/bot${process.env.NEXT_PUBLIC_TOKEN}/sendMessage`, {
+    method: 'POST',
+    body: JSON.stringify({
+      chat_id: chatId,
+      text: message,
+    }),
+  });
+};
 
-if (!bot) {
-  bot = new TelegramBot(process.env.NEXT_PUBLIC_TOKEN as string, { polling: true });
-  bot.setWebHook('https://cal-volume-trade-chat-bot.vercel.app/api/webhook');
-}
-
-export default bot;
+// eslint-disable-next-line import/no-anonymous-default-export
+export default { sendMessage };
