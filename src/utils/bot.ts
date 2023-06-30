@@ -1,5 +1,3 @@
-import TelegramBot from 'node-telegram-bot-api';
-
 const sendMessage = (chatId: string, message: string) => {
   return fetch(`https://api.telegram.org/bot${process.env.NEXT_PUBLIC_TOKEN}/sendMessage`, {
     method: 'POST',
