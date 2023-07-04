@@ -9,7 +9,7 @@ export async function POST(request: Request) {
     const textE = text.split(',');
     if (textE.length < 3)
       return await bot?.sendMessage(chatId, 'Vui lòng nhập đúng định dạng. "lost,entry,sl"');
-    // LOST,ENTRY,SL
+    // LOST MONEY,ENTRY,SL
     const lost = isNaN(Number(textE[0])) ? 0 : Number(textE[0]);
     const entry = isNaN(Number(textE[1])) ? 0 : Number(textE[1]);
     const sl = isNaN(Number(textE[2])) ? 0 : Number(textE[2]);
